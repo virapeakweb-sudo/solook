@@ -374,3 +374,34 @@ function get_reading_time() {
     
     return $output . ' دقیقه مطالعه';
 }
+
+
+// تابعی که تاکسونومی شهرها را می‌سازد (کد قبلی را پیدا و با این جایگزین کنید یا این را ویرایش کنید)
+function register_hotel_city_taxonomy() {
+    $labels = array(
+        'name'              => 'شهرها',
+        'singular_name'     => 'شهر',
+        'search_items'      => 'جستجوی شهرها',
+        'all_items'         => 'همه شهرها',
+        'parent_item'       => 'شهر مادر',
+        'parent_item_colon' => 'شهر مادر:',
+        'edit_item'         => 'ویرایش شهر',
+        'update_item'       => 'بروزرسانی شهر',
+        'add_new_item'      => 'افزودن شهر جدید',
+        'new_item_name'     => 'نام شهر جدید',
+        'menu_name'         => 'شهرها',
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        // تغییر مهم: تبدیل hotel_city به city در آدرس‌دهی
+        'rewrite'           => array( 'slug' => 'city', 'with_front' => false ),
+    );
+
+    register_taxonomy( 'hotel_city', array( 'hotel', 'tour' ), $args );
+}
+add_action( 'init', 'register_hotel_city_taxonomy' );

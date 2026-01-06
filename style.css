@@ -40,3 +40,23 @@ li {
     font-family: 'YekanBakh', sans-serif !important;
     font-feature-settings: "ss02", "ss06";
 }
+
+:root {
+    /* تغییر رنگ‌ها به پالت مدرن و جذاب */
+    --primary: #0ea5e9;
+    /* آبی آسمانی */
+    --secondary: #f97316;
+    /* نارنجی */
+    --text: #334155;
+    /* خاکستری تیره و خوانا */
+    --bg: #f8fafc;
+    /* سفید مایل به آبی خیلی روشن */
+    --dark: #0f172a;
+    /* سرمه‌ای خیلی تیره */
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'YekanBakh', sans-serif;
+}
